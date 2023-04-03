@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel</title>
+    <style>
+      .carousel img {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Carousel</h1>
+    <div class="carousel">
+      <img alt="First" src="https://placehold.co/350x200?text=1" />
+      <img alt="Second" src="https://placehold.co/350x200?text=2" />
+      <img alt="Third" src="https://placehold.co/350x200?text=3" />
+      <img alt="Fourth" src="https://placehold.co/350x200?text=4" />
+      <img alt="Fifth" src="https://placehold.co/350x200?text=5" />
+    </div>
+    <script>
+      const carousel = document.querySelector(".carousel");
+      const images = carousel.querySelectorAll("img");
+      let currentIndex = 0;
+      let nextSlide = 1;
+      let previousSlide = images.length - 1;
+
+      let timer = setInterval(() => {
+        images[currentIndex].style.display = "none";
+        images[nextSlide].style.display = "block";
+        previousSlide = currentIndex;
+        currentIndex = nextSlide;
+        nextSlide = nextSlide + 1;
+        if (nextSlide >= images.length) {
+          nextSlide = 0;
+        }
+      }, 2000);
+    </script>
+  </body>
+</html>
